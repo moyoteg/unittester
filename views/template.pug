@@ -1,0 +1,15 @@
+link(href='/style.css', rel='stylesheet')
+
+html
+    head
+
+    body
+        h1 Hello World, this is #{siteName}!
+
+        if user != null
+            p Hi there, #{user.username}!
+        else
+            p Hi there, unknown person!
+
+        block content
+            p This page doesn't have any content yet.

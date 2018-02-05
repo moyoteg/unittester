@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title Welcome to Glitch!
+    meta(name='description', content='Unit Testing Server')
+    link#favicon(rel='icon', href='https://cdn.glitch.com/a8a4385f-dee0-49f0-84ca-a26ec63b2c5e%2FMoi.png?1516739408816', type='image/x-icon')
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='/style.css')
+  body
+    header
+      h1= title
+    main
+      p.bold= message 
+        a(href='https://glitch.com/edit/#!/thread-adjustment')
+          | Look at source code on glitch.com
+      h1= header
+      ul
+        for endpoint in endpointList
+          li= '/' + endpoint
+    footer
+      a(href='https://glitch.com')
+        | Remix this in Glitch
+    // Your web-app is https, so your scripts need to be too
+    script(src='https://code.jquery.com/jquery-2.2.1.min.js', integrity='sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=', crossorigin='anonymous')
+    script(src='/client.js')
