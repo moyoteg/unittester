@@ -13,7 +13,7 @@ Your Project
 
 On the front-end,
 - edit `public/client.js`, `public/style.css` and `views/index.html`
-- drag in `assets`, like images, to add them to your project
+- drag in `assets`, like images, to add them to the project
 
 On the back-end,
 - your app starts at `server.js`
