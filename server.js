@@ -24,7 +24,8 @@ var endpointList = {
   etagAsset:"/etagAsset",
   etag:"/etag",
   pugTemplate:"/pugTemplate",
-  getRandomAssetURLArray:"/getRandomAssetURLArray"
+  getRandomAssetURLArray:"/getRandomAssetURLArray",
+  idBasedURLRedirect:"/167696517765434/1/123/camera-thumbnail"
 }
 
 // http://expressjs.com/en/starter/basic-routing.html
@@ -182,6 +183,26 @@ app.get(endpointList["getRandomAssetURLArray"], function (request, response) {
       response.setHeader('Content-Type', 'application/json');
     response.send(JSON.stringify(messageData));
     }) 
+});
+
+/*
+This is meant to test static routing
+*/
+let imgURL = "https://cdn.glitch.com/a8a4385f-dee0-49f0-84ca-a26ec63b2c5e%2F7e918fc836a6cdd450027c7c488ebf0b70e145ab.jpg?1518717703782"
+
+app.get(endpointList["idBasedURLRedirect"], function (request, response) {
+  if (etagAssetRequestCount > etagAssetRequestCountMax) {
+    etagAssetRequestCount = 0
+  }
+  var filepath = imageURLs[etagAssetRequestCount]
+  /* 
+  this image URL is returned just like platform would from the id based url:
+  '<base url>/167696517765434/1/123/camera-thumbnail'
+  */
+  response.redirect(imgURL)
+  console.log('redirected to get static URL image asset')
+  etagAssetRequestCount++
+  console.log('staticURLImage endpoint called')
 });
 
 // listen for requests :)
